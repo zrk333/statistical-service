@@ -1,6 +1,8 @@
 package com.gm.statistical.service.converter.impl;
 
+import com.gm.statistical.model.StudyLogsDO;
 import com.gm.statistical.model.WatchVideoInfoDTO;
+import com.gm.statistical.request.CourseLessonLearnRequest;
 import com.gm.statistical.request.WatchVideoRequest;
 import com.gm.statistical.service.converter.WatchVideoInfoConverter;
 import org.springframework.beans.BeanUtils;
@@ -21,5 +23,19 @@ public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
         WatchVideoInfoDTO watchVideoInfoDTO = new WatchVideoInfoDTO();
         BeanUtils.copyProperties(request,watchVideoInfoDTO);
         return watchVideoInfoDTO;
+    }
+
+    @Override
+    public StudyLogsDO convertDTOToStudyLogsDO(WatchVideoInfoDTO watchVideoInfoDTO) {
+        StudyLogsDO studyLogsDO = new StudyLogsDO();
+        BeanUtils.copyProperties(watchVideoInfoDTO,studyLogsDO);
+        return studyLogsDO;
+    }
+
+    @Override
+    public CourseLessonLearnRequest convertDTOToCourseLessonLearnRequest(WatchVideoInfoDTO watchVideoInfoDTO) {
+        CourseLessonLearnRequest courseLessonLearnRequest = new CourseLessonLearnRequest();
+        BeanUtils.copyProperties(watchVideoInfoDTO,courseLessonLearnRequest);
+        return courseLessonLearnRequest;
     }
 }

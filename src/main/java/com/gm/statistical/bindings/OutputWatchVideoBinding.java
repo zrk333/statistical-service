@@ -8,7 +8,7 @@ import org.springframework.messaging.MessageChannel;
  * @Author: zrk
  * @Date: 2019/12/11
  */
-public interface OutputWahchVideoBinding {
+public interface OutputWatchVideoBinding {
 
     /**
      * Topic 名称

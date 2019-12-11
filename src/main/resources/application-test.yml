@@ -1,4 +1,13 @@
-
+eureka:
+    client:
+        fetchRegistry: false
+        registerWithEureka: false
+        serviceUrl:
+            defaultZone: http://jhwxadmin:jhwxadmin@localhost:40000/eureka/
+    instance:
+        hostname: ${spring.cloud.client.ip-address}
+        instance-id: ${spring.cloud.client.ip-address}:${server.port}
+        ip-address: true
 spring:
     #配置绑定信息
     cloud:
@@ -32,3 +41,9 @@ spring:
         password: 123456
         port: 5672
         username: admin
+    sleuth:
+        sampler:
+            percentage: 1.0
+
+    zipkin:
+        base-url: http://${spring.cloud.client.ip-address}:40100/

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gm.statistical.dao.classdata.CourseLessonLearnDao">
+    <resultMap id="BaseResultMap" type="com.gm.statistical.model.CourseLessonLearnDO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="userId" property="userId" jdbcType="BIGINT"/>
+        <result column="courseId" property="courseId" jdbcType="BIGINT"/>
+        <result column="lessonId" property="lessonId" jdbcType="BIGINT"/>
+        <result column="learnTime" property="learnTime" jdbcType="BIGINT"/>
+        <result column="finishedTime" property="finishedTime" jdbcType="BIGINT"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="watchNum" property="watchNum" jdbcType="INTEGER"/>
+        <result column="watchTime" property="watchTime" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,courseId,lessonId,learnTime,status,finishedTime,watchTime,watchNum
+    </sql>
+
+    <select id="getLearnInfoByCondition" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from course_lesson_learn
+        where userId = #{request.userId}
+          and courseId = #{request.couseId}
+          and lessonId = #{request.lessonId}
+    </select>
+
+    <insert id="addLearnInfo" parameterType="com.gm.statistical.model.CourseLessonLearnDO">
+        insert into course_lesson_learn
+        (userId,courseId,lessonId,status,startTime,finishedTime,learnTime,watchTime,watchNum,videoStatus,updateTime)
+        values
+        (#{userId},#{courseId},#{lessonId},#{status},#{startTime},#{finishedTime},#{learnTime}
+        ,#{watchTime},#{watchNum},#{videoStatus},#{updateTime})
+    </insert>
+
+    <update id="updateLearnInfo" parameterType="com.gm.statistical.request.CourseLessonLearnRequest">
+        update course_lesson_learn set
+            status = #{status},
+            finishedTime = #{finishedTime},
+            learnTime = #{learnTime},
+            watchTime = #{watchTime},
+            watchNum = #{watchNum},
+            updateTime =  #{updateTime}
+        where userId = #{userId}
+            and courseId = #{couseId}
+            and lessonId = #{lessonId}
+    </update>
+
+</mapper>
