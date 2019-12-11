@@ -1,0 +1,5 @@
+server:
+    port: 52000
+spring:
+    application:
+        name: statistical-service

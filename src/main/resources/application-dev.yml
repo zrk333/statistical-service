@@ -1,0 +1,27 @@
+
+#配置绑定信息
+spring:
+    cloud:
+        stream:
+            bindings:
+                statistical-watch-video-input:
+                    destination: statistical-watch-video
+                    group: ${spring.application.name}
+                statistical-watch-video-output:
+                    destination: statistical-watch-video
+                    group: ${spring.application.name}
+            rabbit:
+                bindings:
+                    statistical-watch-video-input:
+                        consumer:
+                            delayed-exchange: true
+                    statistical-watch-video-output:
+                        consumer:
+                            delayed-exchange: true
+    #rabbitmq连接信息
+    rabbitmq:
+        addresses: 192.168.1.108
+        password: 123456
+        port: 5672
+        username: admin
+
