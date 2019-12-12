@@ -22,7 +22,7 @@
         <include refid="Base_Column_List" />
         from course_lesson_learn
         where userId = #{request.userId}
-          and courseId = #{request.couseId}
+          and courseId = #{request.courseId}
           and lessonId = #{request.lessonId}
     </select>
 
@@ -43,7 +43,7 @@
             watchNum = #{watchNum},
             updateTime =  #{updateTime}
         where userId = #{userId}
-            and courseId = #{couseId}
+            and courseId = #{courseId}
             and lessonId = #{lessonId}
     </update>
 

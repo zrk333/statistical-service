@@ -46,8 +46,7 @@ public class WatchVideoServiceImpl implements WatchVideoService {
      * @param watchVideoInfoDTO
      */
     private void saveStudyLogs(WatchVideoInfoDTO watchVideoInfoDTO) {
-        studyLogsDao.addstudyLogs(watchVideoInfoConverter.convertDTOToStudyLogsDO(watchVideoInfoDTO));
-
+        studyLogsDao.addStudyLogs(watchVideoInfoConverter.convertDTOToStudyLogsDO(watchVideoInfoDTO));
     }
 
     /**
@@ -79,7 +78,7 @@ public class WatchVideoServiceImpl implements WatchVideoService {
         courseLessonLearnRequest.setFinishedTime("finished".equals(courseLessonLearnInfo.getStatus()) ? courseLessonLearnInfo.getFinishedTime() : finishedTime);
         courseLessonLearnRequest.setLearnTime(Math.max(courseLessonLearnInfo.getLearnTime(),watchVideoInfoDTO.getLearnTime()));
         courseLessonLearnRequest.setWatchNum(courseLessonLearnInfo.getWatchNum() + 1);
-        courseLessonLearnRequest.setWatchTime(courseLessonLearnInfo.getWatchTime() + (watchVideoInfoDTO.getEndTime() - watchVideoInfoDTO.getStartTime()));
+        courseLessonLearnRequest.setWatchTime(courseLessonLearnInfo.getWatchTime() + Math.max((watchVideoInfoDTO.getEndTime() - watchVideoInfoDTO.getStartTime()),0));
         courseLessonLearnRequest.setUpdateTime(StringUtil.getTimeStamp());
     }
 

@@ -13,5 +13,5 @@ public interface StudyLogsDao {
      * 添加观看视频记录信息
      * @param studyLogsDO
      */
-    void addstudyLogs(StudyLogsDO studyLogsDO);
+    void addStudyLogs(StudyLogsDO studyLogsDO);
 }

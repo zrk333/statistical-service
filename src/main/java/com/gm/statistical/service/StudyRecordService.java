@@ -15,5 +15,5 @@ public interface StudyRecordService {
      * @param watchVideoInfoDTO
      * @return
      */
-    ResultStatus setWatchVideoRecord(WatchVideoInfoDTO watchVideoInfoDTO);
+    ResultStatus setWatchVideoRecordToMq(WatchVideoInfoDTO watchVideoInfoDTO);
 }

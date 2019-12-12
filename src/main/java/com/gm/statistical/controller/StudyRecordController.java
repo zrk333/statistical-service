@@ -3,6 +3,7 @@ package com.gm.statistical.controller;
 import com.gm.statistical.model.web.ResultStatus;
 import com.gm.statistical.request.WatchVideoRequest;
 import com.gm.statistical.service.StudyRecordService;
+import com.gm.statistical.service.WatchVideoService;
 import com.gm.statistical.service.converter.WatchVideoInfoConverter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,6 +33,9 @@ public class StudyRecordController {
     @Resource
     private WatchVideoInfoConverter watchVideoInfoConverter;
 
+    @Resource
+    private WatchVideoService watchVideoService;
+
     /**
      * 统计听课记录
      */
@@ -39,6 +43,17 @@ public class StudyRecordController {
             , tags = {"[学习记录]"}, httpMethod = "POST")
     @PostMapping("setWatchVideoRecord")
     public ResultStatus setWatchVideoRecord(@RequestBody @Valid WatchVideoRequest request) {
-        return studyRecordService.setWatchVideoRecord(watchVideoInfoConverter.convertRequestToDTO(request));
+        return studyRecordService.setWatchVideoRecordToMq(watchVideoInfoConverter.convertRequestToDTO(request));
+    }
+
+    /**
+     * 统计听课记录-测试
+     */
+    @ApiOperation(value = "统计听课记录", notes = "统计听课记录"
+            , tags = {"[学习记录]"}, httpMethod = "POST")
+    @PostMapping("setWatchVideoRecordTest")
+    public ResultStatus setWatchVideoRecordTest(@RequestBody @Valid WatchVideoRequest request) {
+        watchVideoService.setWatchVideoInfo(watchVideoInfoConverter.convertRequestToDTO(request));
+        return new ResultStatus();
     }
 }

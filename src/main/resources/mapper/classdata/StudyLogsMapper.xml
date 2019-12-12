@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gm.statistical.dao.classdata.StudyLogsDao">
-    <insert id="addstudyLogs" parameterType="com.gm.statistical.model.StudyLogsDO">
+    <insert id="addStudyLogs" parameterType="com.gm.statistical.model.StudyLogsDO">
         insert into s_study_logs
         (uid,uname,courseid,lessonid,learntime,wstarttime,wendtime,mid)
         values
-        (#{userId},#{userName},#{courseId},#{lessonId},#{uid},#{learnTime},#{startTime},#{endTime},#{mId})
+        (#{userId},#{userName},#{courseId},#{lessonId},#{learnTime},#{startTime},#{endTime},#{mId})
     </insert>
 
 </mapper>
