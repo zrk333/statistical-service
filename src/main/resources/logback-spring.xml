@@ -21,12 +21,12 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         <!--springProfile是SpringBoot日志特性，xml文件名后加 -spring -->
         <springProfile name="dev">
             <layout class="ch.qos.logback.classic.PatternLayout">
-                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{X-B3-TraceId},%X{X-B3-SpanId}] %-5level %logger{50} - %msg%n</pattern>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-B3-TraceId},%X{X-B3-SpanId}] %-5level %logger{50} - %msg%n</pattern>
             </layout>
         </springProfile>
         <springProfile name="!dev">
             <layout class="ch.qos.logback.classic.PatternLayout">
-                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{X-B3-TraceId},%X{X-B3-SpanId}] %-5level %logger{50} - %msg%n</pattern>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-B3-TraceId},%X{X-B3-SpanId}] %-5level %logger{50} - %msg%n</pattern>
             </layout>
         </springProfile>
     </appender>
