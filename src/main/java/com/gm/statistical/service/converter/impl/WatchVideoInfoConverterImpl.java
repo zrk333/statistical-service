@@ -2,6 +2,7 @@ package com.gm.statistical.service.converter.impl;
 
 import com.gm.statistical.model.StudyLogsDO;
 import com.gm.statistical.model.WatchVideoInfoDTO;
+import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.request.CourseLessonLearnRequest;
 import com.gm.statistical.request.WatchVideoRequest;
 import com.gm.statistical.service.converter.WatchVideoInfoConverter;
@@ -19,9 +20,13 @@ import javax.validation.Valid;
 public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
 
     @Override
-    public WatchVideoInfoDTO convertRequestToDTO(@Valid WatchVideoRequest request) {
+    public WatchVideoInfoDTO convertRequestToDTO(@Valid WatchVideoRequest request, ClassRequest baseRequest) {
         WatchVideoInfoDTO watchVideoInfoDTO = new WatchVideoInfoDTO();
         BeanUtils.copyProperties(request,watchVideoInfoDTO);
+        if(baseRequest != null){
+            watchVideoInfoDTO.setUserId(baseRequest.getUserId());
+            watchVideoInfoDTO.setPlatform(baseRequest.getPlatform());
+        }
         return watchVideoInfoDTO;
     }
 

@@ -2,6 +2,7 @@ package com.gm.statistical.service.converter;
 
 import com.gm.statistical.model.StudyLogsDO;
 import com.gm.statistical.model.WatchVideoInfoDTO;
+import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.request.CourseLessonLearnRequest;
 import com.gm.statistical.request.WatchVideoRequest;
 
@@ -17,9 +18,10 @@ public interface WatchVideoInfoConverter {
     /**
      * 请求转化为DTO
      * @param request
+     * @param baseRequest
      * @return
      */
-    WatchVideoInfoDTO convertRequestToDTO(@Valid WatchVideoRequest request);
+    WatchVideoInfoDTO convertRequestToDTO(@Valid WatchVideoRequest request, ClassRequest baseRequest);
 
     /**
      * 观看视频信息DTO转化为观看记录DO

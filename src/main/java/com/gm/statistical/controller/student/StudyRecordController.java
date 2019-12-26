@@ -1,6 +1,7 @@
-package com.gm.statistical.controller;
+package com.gm.statistical.controller.student;
 
 import com.gm.statistical.model.web.ResultStatus;
+import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.request.WatchVideoRequest;
 import com.gm.statistical.service.StudyRecordService;
 import com.gm.statistical.service.WatchVideoService;
@@ -42,8 +43,8 @@ public class StudyRecordController {
     @ApiOperation(value = "统计听课记录", notes = "统计听课记录"
             , tags = {"[学习记录]"}, httpMethod = "POST")
     @PostMapping("setWatchVideoRecord")
-    public ResultStatus setWatchVideoRecord(@RequestBody @Valid WatchVideoRequest request) {
-        return studyRecordService.setWatchVideoRecordToMq(watchVideoInfoConverter.convertRequestToDTO(request));
+    public ResultStatus setWatchVideoRecord(ClassRequest userRequest, @RequestBody @Valid WatchVideoRequest request) {
+        return studyRecordService.setWatchVideoRecordToMq(watchVideoInfoConverter.convertRequestToDTO(request,userRequest));
     }
 
     /**
@@ -52,8 +53,8 @@ public class StudyRecordController {
     @ApiOperation(value = "统计听课记录", notes = "统计听课记录"
             , tags = {"[学习记录]"}, httpMethod = "POST")
     @PostMapping("setWatchVideoRecordTest")
-    public ResultStatus setWatchVideoRecordTest(@RequestBody @Valid WatchVideoRequest request) {
-        watchVideoService.setWatchVideoInfo(watchVideoInfoConverter.convertRequestToDTO(request));
+    public ResultStatus setWatchVideoRecordTest(ClassRequest userRequest, @RequestBody @Valid WatchVideoRequest request) {
+        watchVideoService.setWatchVideoInfo(watchVideoInfoConverter.convertRequestToDTO(request,userRequest));
         return new ResultStatus();
     }
 }
