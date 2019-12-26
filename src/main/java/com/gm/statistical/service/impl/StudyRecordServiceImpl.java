@@ -27,7 +27,7 @@ public class StudyRecordServiceImpl implements StudyRecordService {
     @Override
     public ResultStatus setWatchVideoRecordToMq(WatchVideoInfoDTO watchVideoInfoDTO) {
         //将观看信息放入消息队列
-        outputWatchVideoBinding.output().send(MessageBuilder.withPayload(watchVideoInfoDTO).setHeader("x-delay", 5000).build());
+        outputWatchVideoBinding.output().send(MessageBuilder.withPayload(watchVideoInfoDTO).build());
         return new ResultStatus();
     }
 }
