@@ -45,6 +45,7 @@ public class UserRequestAspect {
         String longitude = request.getHeader("X-GM-lng");
         String latitude = request.getHeader("X-GM-lat");
         String platformStr = request.getHeader("X-GM-platform");
+        String deviceIdStr = request.getHeader("X-GM-deviceId");
         if(StringUtils.isEmpty(platformStr)){
             throw new InvalidPlatformException();
         }
@@ -64,6 +65,7 @@ public class UserRequestAspect {
                     classUserRequest.setLatitude(latitude);
                     classUserRequest.setLongitude(longitude);
                     classUserRequest.setPlatform(Integer.valueOf(platformStr));
+                    classUserRequest.setDeviceId(deviceIdStr);
                 }
             }
         }

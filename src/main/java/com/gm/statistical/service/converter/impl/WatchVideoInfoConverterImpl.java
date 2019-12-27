@@ -26,6 +26,7 @@ public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
         if(baseRequest != null){
             watchVideoInfoDTO.setUserId(baseRequest.getUserId());
             watchVideoInfoDTO.setPlatform(baseRequest.getPlatform());
+            watchVideoInfoDTO.setMId(baseRequest.getDeviceId());
         }
         return watchVideoInfoDTO;
     }

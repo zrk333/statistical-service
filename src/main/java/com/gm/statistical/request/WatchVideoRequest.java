@@ -15,12 +15,6 @@ import javax.validation.constraints.NotNull;
 @ApiModel(value = "观看视频信息")
 @Data
 public class WatchVideoRequest {
-    /**
-     * 用户id(课程库)
-     */
-//    @ApiModelProperty(value = "用户id(课程库)",required = true)
-//    @NotNull(message = "参数错误：用户id不能为空")
-//    private Long userId;
 
     /**
      * 用户名
@@ -82,16 +76,4 @@ public class WatchVideoRequest {
     @ApiModelProperty(value = "学校名称")
     private String schoolName;
 
-    /**
-     * 平台 0:安卓；1：IOS; 2: WEB; 3:小程序
-     */
-//    @ApiModelProperty(value = "平台", allowableValues = "0:安卓；1：IOS; 2: WEB; 3:小程序", required = true)
-//    @NotNull(message = "参数错误：平台不能为空")
-//    private Integer platform;
-
-    /**
-     * 手机唯一码
-     */
-//    @ApiModelProperty(value = "手机唯一码")
-//    private String mId;
 }

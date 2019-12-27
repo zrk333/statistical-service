@@ -38,6 +38,8 @@ public class SwaggerConfig {
         pars.add(tokenPar.build());
         tokenPar.name("X-GM-platform").description("平台").modelRef(new ModelRef("int")).defaultValue("0").parameterType("header").required(true).build();
         pars.add(tokenPar.build());
+        tokenPar.name("X-GM-deviceId").description("设备号").modelRef(new ModelRef("string")).defaultValue("").parameterType("header").required(true).build();
+        pars.add(tokenPar.build());
         tokenPar.name("X-GM-lng").description("经度").modelRef(new ModelRef("long")).defaultValue("0").parameterType("header").required(false).build();
         pars.add(tokenPar.build());
         tokenPar.name("X-GM-lat").description("纬度").modelRef(new ModelRef("long")).defaultValue("0").parameterType("header").required(false).build();
