@@ -50,8 +50,6 @@ public class StudyRecordController {
     /**
      * 统计听课记录-测试
      */
-    @ApiOperation(value = "统计听课记录", notes = "统计听课记录"
-            , tags = {"[学习记录]"}, httpMethod = "POST")
     @PostMapping("setWatchVideoRecordTest")
     public ResultStatus setWatchVideoRecordTest(ClassRequest userRequest, @RequestBody @Valid WatchVideoRequest request) {
         watchVideoService.setWatchVideoInfo(watchVideoInfoConverter.convertRequestToDTO(request,userRequest));
