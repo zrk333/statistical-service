@@ -1,6 +1,7 @@
 package com.gm.statistical.aop;
 
 import com.gm.core.base.exception.statistical.InvalidPlatformException;
+import com.gm.core.base.exception.statistical.InvalidUserIdException;
 import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -55,9 +56,10 @@ public class UserRequestAspect {
             for (Object arg : args) {
                 if(arg instanceof ClassRequest){
                     ClassRequest classUserRequest = (ClassRequest)arg;
-                    if(userId != null){
-                        userId = userService.getClassUserId(userId);
+                    if(userId == null || userId == 0){
+                        throw new InvalidUserIdException();
                     }
+                    userId = userService.getClassUserId(userId);
                     classUserRequest.setUserId(userId);
                     classUserRequest.setLatitude(latitude);
                     classUserRequest.setLongitude(longitude);
