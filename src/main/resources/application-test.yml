@@ -1,0 +1,49 @@
+spring:
+  # rabbitmq连接信息
+  rabbitmq:
+    addresses: 118.145.23.151
+    port: 5672
+    username: admin
+    password: jhwxadmin
+
+  #数据源
+  datasource:
+    class:
+      url: jdbc:mysql://172.16.10.151:3306/jhwx_class_data?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=UTC
+    driverClassName: com.mysql.jdbc.Driver
+    password: 360@(abc)
+    username: root
+
+  #消息队列配置
+  cloud:
+    stream:
+      bindings:
+        statistical-watch-video-input:
+          consumer:
+            maxAttempts: 1
+          destination: statistical-watch-video
+          group: ${spring.application.name}
+        statistical-watch-video-output:
+          destination: statistical-watch-video
+      rabbit:
+        bindings:
+          statistical-watch-video-input:
+            consumer:
+              autoBindDlq: true #开启死信队列
+              dlqTtl: 432000000‬ #死信队列消息存放时间(5天)
+              republishToDlq: true
+
+  zipkin:
+    base-url: http://${spring.cloud.client.ip-address}:40020/
+  sleuth:
+    sampler:
+      percentage: 1.0 #0.1-1.0 也就是代表链路跟踪的数据上传的概率有多大
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://jhwx:jhwxadmin@${spring.cloud.client.ip-address}:40000/eureka/
+  instance:
+    hostname: ${spring.cloud.client.ip-address}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    ip-address: true
