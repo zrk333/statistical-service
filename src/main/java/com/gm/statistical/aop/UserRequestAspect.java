@@ -1,5 +1,6 @@
 package com.gm.statistical.aop;
 
+import com.gm.core.base.exception.statistical.InvalidPlatformException;
 import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +45,7 @@ public class UserRequestAspect {
         String latitude = request.getHeader("X-GM-lat");
         String platformStr = request.getHeader("X-GM-platform");
         if(StringUtils.isEmpty(platformStr)){
-            throw new RuntimeException("平台不能为空");
+            throw new InvalidPlatformException();
         }
         Long userId = null;
         if(StringUtils.isNotEmpty(userIdStr)){
