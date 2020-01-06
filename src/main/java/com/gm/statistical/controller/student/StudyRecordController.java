@@ -8,7 +8,6 @@ import com.gm.statistical.service.WatchVideoService;
 import com.gm.statistical.service.converter.WatchVideoInfoConverter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,6 @@ import javax.validation.Valid;
  * @Author: zrk
  * @Date: 2019/12/10
  */
-@Slf4j
 @RestController
 @RequestMapping("study")
 @Api(value = "学习记录统计", tags = "学习记录统计")

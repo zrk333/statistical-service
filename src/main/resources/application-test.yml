@@ -36,7 +36,6 @@ spring:
           statistical-watch-video-input:
             consumer:
               autoBindDlq: true #开启死信队列
-              dlqTtl: 432000000 #死信队列消息存放时间(5天)
               republishToDlq: true
   zipkin:
     base-url: http://${spring.cloud.client.ip-address}:40020/

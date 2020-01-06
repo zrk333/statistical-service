@@ -30,7 +30,6 @@ spring:
           statistical-watch-video-input:
             consumer:
               autoBindDlq: true #开启死信队列
-              dlqTtl: 86400000
               republishToDlq: true
 eureka:
   client:
