@@ -26,7 +26,7 @@ public class WatchVideoListener {
 
     @StreamListener(InputWatchVideoBinding.INPUT)
     public void handle(String value) {
-        log.info("[消息] 接收到发送消息MQ: {}", value);
+        log.info("[消息] 接收到消息MQ(统计听课记录): {}", value);
         WatchVideoInfoDTO watchVideoInfoDTO = JSON.parseObject(value, WatchVideoInfoDTO.class);
         watchVideoService.setWatchVideoInfo(watchVideoInfoDTO);
     }

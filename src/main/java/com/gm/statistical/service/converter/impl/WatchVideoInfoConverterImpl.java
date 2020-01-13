@@ -6,6 +6,7 @@ import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.request.CourseLessonLearnRequest;
 import com.gm.statistical.request.WatchVideoRequest;
 import com.gm.statistical.service.converter.WatchVideoInfoConverter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import javax.validation.Valid;
  * @Author: zrk
  * @Date: 2019/12/10
  */
+@Slf4j
 @Service
 public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
 
@@ -28,6 +30,7 @@ public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
             watchVideoInfoDTO.setPlatform(baseRequest.getPlatform());
             watchVideoInfoDTO.setMId(baseRequest.getDeviceId());
         }
+        log.info("统计听课记录参数：{}", watchVideoInfoDTO.toString());
         return watchVideoInfoDTO;
     }
 
