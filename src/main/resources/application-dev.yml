@@ -35,3 +35,9 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+logging:
+  file:  logs/${spring.application.name}.log
+  level:
+    com:
+      gm: debug
+    root: info
