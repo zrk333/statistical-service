@@ -15,6 +15,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Long getClassUserId(Long userId) {
-        return 123L;
+        return userId;
     }
 }
