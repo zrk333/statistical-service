@@ -70,10 +70,4 @@ public class WatchVideoRequest {
     @NotEmpty(message = "参数错误：课时类型不能为空")
     private String type;
 
-    /**
-     * 学校名称
-     */
-    @ApiModelProperty(value = "学校名称")
-    private String schoolName;
-
 }

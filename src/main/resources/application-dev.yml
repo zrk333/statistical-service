@@ -10,6 +10,8 @@ spring:
   datasource:
     class:
       url: jdbc:mysql://127.0.0.1:3306/jhwx_class_data?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=UTC
+    gm:
+      url: jdbc:mysql://127.0.0.1:3306/gm_database?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=UTC
     driverClassName: com.mysql.jdbc.Driver
     password: root
     username: root

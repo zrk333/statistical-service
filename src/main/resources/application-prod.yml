@@ -18,6 +18,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     class:
       url: jdbc:mysql://172.16.10.151:3306/jhwx_class_data?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=UTC
+    gm:
+      url: jdbc:mysql://172.16.10.151:3306/gm_database?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=UTC
     driverClassName: com.mysql.jdbc.Driver
     password: 360@(abc)
     username: root

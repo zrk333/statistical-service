@@ -1,6 +1,5 @@
 package com.gm.statistical.aop;
 
-import com.gm.core.base.exception.statistical.InvalidPlatformException;
 import com.gm.core.base.exception.statistical.InvalidUserIdException;
 import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.service.UserService;
@@ -46,9 +45,6 @@ public class UserRequestAspect {
         String latitude = request.getHeader("X-GM-lat");
         String platformStr = request.getHeader("X-GM-platform");
         String deviceIdStr = request.getHeader("X-GM-deviceId");
-        if(StringUtils.isEmpty(platformStr)){
-            throw new InvalidPlatformException();
-        }
         Long userId = null;
         if(StringUtils.isNotEmpty(userIdStr)){
             userId = Long.valueOf(userIdStr);
@@ -64,7 +60,9 @@ public class UserRequestAspect {
                     classUserRequest.setUserId(userId);
                     classUserRequest.setLatitude(latitude);
                     classUserRequest.setLongitude(longitude);
-                    classUserRequest.setPlatform(Integer.valueOf(platformStr));
+                    if(StringUtils.isNotEmpty(platformStr)) {
+                        classUserRequest.setPlatform(Integer.valueOf(platformStr));
+                    }
                     classUserRequest.setDeviceId(deviceIdStr);
                 }
             }

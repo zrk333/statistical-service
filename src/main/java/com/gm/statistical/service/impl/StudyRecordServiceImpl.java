@@ -1,5 +1,6 @@
 package com.gm.statistical.service.impl;
 
+import com.gm.core.base.exception.statistical.InvalidPlatformException;
 import com.gm.statistical.bindings.OutputWatchVideoBinding;
 import com.gm.statistical.model.WatchVideoInfoDTO;
 import com.gm.statistical.model.web.ResultStatus;
@@ -26,8 +27,15 @@ public class StudyRecordServiceImpl implements StudyRecordService {
 
     @Override
     public ResultStatus setWatchVideoRecordToMq(WatchVideoInfoDTO watchVideoInfoDTO) {
+        validatePlatform(watchVideoInfoDTO.getPlatform());
         //将观看信息放入消息队列
         outputWatchVideoBinding.output().send(MessageBuilder.withPayload(watchVideoInfoDTO).build());
         return new ResultStatus();
+    }
+
+    private void validatePlatform(Integer platform) {
+        if(platform == null){
+            throw new InvalidPlatformException();
+        }
     }
 }

@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public interface WatchVideoInfoConverter {
 
     /**
-     * 请求转化为DTO
+     * 请求参数转化为DTO
      * @param request
      * @param baseRequest
      * @return
@@ -31,7 +31,7 @@ public interface WatchVideoInfoConverter {
     StudyLogsDO convertDTOToStudyLogsDO(WatchVideoInfoDTO watchVideoInfoDTO);
 
     /**
-     * 观看视频信息DTO转化为学习记录DO
+     * 观看视频信息DTO转化为课时学习请求参数
      * @param watchVideoInfoDTO
      * @return
      */
