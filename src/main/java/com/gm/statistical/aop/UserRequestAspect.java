@@ -70,7 +70,15 @@ public class UserRequestAspect {
                     if(userId == null || userId == 0){
                         throw new InvalidUserIdException();
                     }
-                    userId = userService.getUCenterUserId(userId);
+                    Integer platform = null;
+                    if(StringUtils.isNotEmpty(platformStr)){
+                        platform = Integer.valueOf(platformStr);
+                    }
+                    if(platform != null && platform == 2){
+                        //web端登录接口目前直接返回的是ucenter库userId,因此无需转换
+                    } else {
+                        userId = userService.getUCenterUserId(userId);
+                    }
                     userCenterRequest.setUserId(userId);
                 }
             }
