@@ -14,4 +14,11 @@ public interface ActivityRecordDao {
      * @param activityRecordDO
      */
     void addUserRecord(ActivityRecordDO activityRecordDO);
+
+    /**
+     * 获取用户参加该活动数量
+     * @param activityRecordDO
+     * @return
+     */
+    Integer getCountUserRecord(ActivityRecordDO activityRecordDO);
 }

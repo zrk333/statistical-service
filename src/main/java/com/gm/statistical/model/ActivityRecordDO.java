@@ -30,6 +30,16 @@ public class ActivityRecordDO {
     private String schoolName;
 
     /**
+     * 手机号
+     */
+    private String phone;
+
+    /**
+     * 用户名
+     */
+    private String userName;
+
+    /**
      * 创建时间
      */
     private String createTime;

@@ -3,7 +3,7 @@ package com.gm.statistical.service.converter;
 import com.gm.statistical.model.ActivityRecordDO;
 import com.gm.statistical.model.ActivityRecordDTO;
 import com.gm.statistical.request.ActivityRecordRequest;
-import com.gm.statistical.request.ClassRequest;
+import com.gm.statistical.request.CenterRequest;
 
 import javax.validation.Valid;
 
@@ -19,7 +19,7 @@ public interface ActivityRecordConverter {
      * @param request
      * @param userRequest
      */
-    ActivityRecordDTO convertRequestToDTO(@Valid ActivityRecordRequest request, ClassRequest userRequest);
+    ActivityRecordDTO convertRequestToDTO(@Valid ActivityRecordRequest request, CenterRequest userRequest);
 
     ActivityRecordDO convertDTOToDo(ActivityRecordDTO activityRecordDTO);
 }

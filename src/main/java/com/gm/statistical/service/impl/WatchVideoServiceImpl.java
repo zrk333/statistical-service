@@ -1,5 +1,6 @@
 package com.gm.statistical.service.impl;
 
+import com.gm.core.base.exception.statistical.InvalidPlatformException;
 import com.gm.core.base.utils.StringUtil;
 import com.gm.statistical.dao.classdata.CourseLessonLearnDao;
 import com.gm.statistical.dao.classdata.StudyLogsDao;
@@ -34,11 +35,19 @@ public class WatchVideoServiceImpl implements WatchVideoService {
 
     @Override
     public void setWatchVideoInfo(WatchVideoInfoDTO watchVideoInfoDTO) {
+        validatePlatform(watchVideoInfoDTO.getPlatform());
+
         //保存观看记录日志
         saveStudyLogs(watchVideoInfoDTO);
 
         //更新学习记录
         setLearnRecord(watchVideoInfoDTO);
+    }
+
+    private void validatePlatform(Integer platform) {
+        if(platform == null){
+            throw new InvalidPlatformException();
+        }
     }
 
     /**

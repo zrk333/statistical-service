@@ -4,7 +4,7 @@ import com.gm.core.base.utils.StringUtil;
 import com.gm.statistical.model.ActivityRecordDO;
 import com.gm.statistical.model.ActivityRecordDTO;
 import com.gm.statistical.request.ActivityRecordRequest;
-import com.gm.statistical.request.ClassRequest;
+import com.gm.statistical.request.CenterRequest;
 import com.gm.statistical.service.converter.ActivityRecordConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -22,7 +22,7 @@ import javax.validation.Valid;
 public class ActivityRecordConverterImpl implements ActivityRecordConverter {
 
     @Override
-    public ActivityRecordDTO convertRequestToDTO(@Valid ActivityRecordRequest request, ClassRequest userRequest) {
+    public ActivityRecordDTO convertRequestToDTO(@Valid ActivityRecordRequest request, CenterRequest userRequest) {
         ActivityRecordDTO activityRecordDTO = new ActivityRecordDTO();
         BeanUtils.copyProperties(request,activityRecordDTO);
         if(userRequest != null){

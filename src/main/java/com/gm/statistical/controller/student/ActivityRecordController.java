@@ -2,7 +2,7 @@ package com.gm.statistical.controller.student;
 
 import com.gm.statistical.model.web.ResultStatus;
 import com.gm.statistical.request.ActivityRecordRequest;
-import com.gm.statistical.request.ClassRequest;
+import com.gm.statistical.request.CenterRequest;
 import com.gm.statistical.service.ActivityRecordService;
 import com.gm.statistical.service.converter.ActivityRecordConverter;
 import io.swagger.annotations.Api;
@@ -37,7 +37,7 @@ public class ActivityRecordController {
     @ApiOperation(value = "用户参加活动信息统计", notes = "用户参加活动信息统计"
             , tags = {"[记录统计]"}, httpMethod = "POST")
     @PostMapping("setUserRecord")
-    public ResultStatus setUserRecord(ClassRequest userRequest, @RequestBody @Valid ActivityRecordRequest request) {
+    public ResultStatus setUserRecord(CenterRequest userRequest, @RequestBody @Valid ActivityRecordRequest request) {
         return activityRecordService.setUserRecord(activityRecordConverter.convertRequestToDTO(request,userRequest));
     }
 }

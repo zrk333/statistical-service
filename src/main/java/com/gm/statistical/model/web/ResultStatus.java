@@ -31,7 +31,9 @@ public class ResultStatus implements Serializable{
 
     public enum GlobalStatus {
         /**成功*/
-        SUCCESS(0)
+        SUCCESS(0),
+        /**已存在*/
+        ALREADY(3)
         ;
 
         public Integer value;

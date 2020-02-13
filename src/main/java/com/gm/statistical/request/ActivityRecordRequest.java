@@ -27,4 +27,16 @@ public class ActivityRecordRequest extends SchoolRequest{
     @NotNull(message = "参数错误：是否为新用户不能为空")
     private Integer isNew;
 
+    /**
+     * 手机号
+     */
+    @ApiModelProperty(value = "手机号")
+    private String phone;
+
+    /**
+     * 用户名
+     */
+    @ApiModelProperty(value = "用户名")
+    private String userName;
+
 }

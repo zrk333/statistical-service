@@ -13,4 +13,11 @@ public interface UserService {
      * @return
      */
     Long getClassUserId(Long userId);
+
+    /**
+     * 获取用户中心用户id
+     * @param userId
+     * @return
+     */
+    Long getUCenterUserId(Long userId);
 }

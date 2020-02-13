@@ -1,6 +1,7 @@
 package com.gm.statistical.aop;
 
 import com.gm.core.base.exception.statistical.InvalidUserIdException;
+import com.gm.statistical.request.CenterRequest;
 import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -64,6 +65,13 @@ public class UserRequestAspect {
                         classUserRequest.setPlatform(Integer.valueOf(platformStr));
                     }
                     classUserRequest.setDeviceId(deviceIdStr);
+                } else if(arg instanceof CenterRequest){
+                    CenterRequest userCenterRequest = (CenterRequest)arg;
+                    if(userId == null || userId == 0){
+                        throw new InvalidUserIdException();
+                    }
+                    userId = userService.getUCenterUserId(userId);
+                    userCenterRequest.setUserId(userId);
                 }
             }
         }

@@ -3,9 +3,14 @@
 <mapper namespace="com.gm.statistical.dao.gmdata.ActivityRecordDao">
     <insert id="addUserRecord" parameterType="com.gm.statistical.model.ActivityRecordDO">
         insert into gm_record_user_activity
-        (school_name,activity_id,user_id,is_new,create_time,update_time)
+        (school_name,activity_id,user_id,is_new,user_name,phone,create_time,update_time)
         values
-        (#{schoolName},#{activityId},#{userId},#{isNew},#{createTime},#{updateTime})
+        (#{schoolName},#{activityId},#{userId},#{isNew},#{userName},#{phone},#{createTime},#{updateTime})
     </insert>
+
+    <select id="getCountUserRecord" resultType="int">
+        select count(1) from gm_record_user_activity
+        where activity_id = #{activityId} and user_id = #{userId}
+    </select>
 
 </mapper>

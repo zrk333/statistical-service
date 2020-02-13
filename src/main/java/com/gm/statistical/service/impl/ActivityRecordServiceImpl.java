@@ -1,6 +1,7 @@
 package com.gm.statistical.service.impl;
 
 import com.gm.statistical.dao.gmdata.ActivityRecordDao;
+import com.gm.statistical.model.ActivityRecordDO;
 import com.gm.statistical.model.ActivityRecordDTO;
 import com.gm.statistical.model.web.ResultStatus;
 import com.gm.statistical.service.ActivityRecordService;
@@ -27,7 +28,13 @@ public class ActivityRecordServiceImpl implements ActivityRecordService {
 
     @Override
     public ResultStatus setUserRecord(ActivityRecordDTO activityRecordDTO) {
-        activityRecordDao.addUserRecord(activityRecordConverter.convertDTOToDo(activityRecordDTO));
+        ActivityRecordDO activityRecordDO = activityRecordConverter.convertDTOToDo(activityRecordDTO);
+        Integer count = activityRecordDao.getCountUserRecord(activityRecordDO);
+        if(count == null || count < 1){
+            activityRecordDao.addUserRecord(activityRecordDO);
+        } else {
+            return new ResultStatus(ResultStatus.GlobalStatus.ALREADY,"该条记录已存在");
+        }
         return new ResultStatus();
     }
 }

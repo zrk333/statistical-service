@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -42,7 +41,6 @@ public class GmDataSourceConfig {
      * 配置数据业务数据源
      */
     @Bean(name = "gmDataSource")
-    @Primary
     public DataSource gmDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClassName);
@@ -56,7 +54,6 @@ public class GmDataSourceConfig {
      * 配置业务事物管理
      */
     @Bean(name = "gmTransactionManager")
-    @Primary
     public DataSourceTransactionManager gmTransactionManager() {
         return new DataSourceTransactionManager(gmDataSource());
     }
@@ -65,7 +62,6 @@ public class GmDataSourceConfig {
      * 配置业务SqlSessionFactory
      */
     @Bean(name = "gmSqlSessionFactory")
-    @Primary
     public SqlSessionFactory gmSqlSessionFactory(@Qualifier("gmDataSource") DataSource dataSource)
             throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();

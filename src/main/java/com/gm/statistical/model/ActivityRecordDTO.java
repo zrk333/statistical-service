@@ -29,4 +29,14 @@ public class ActivityRecordDTO {
      * 学校名称
      */
     private String schoolName;
+
+    /**
+     * 手机号
+     */
+    private String phone;
+
+    /**
+     * 用户名
+     */
+    private String userName;
 }
