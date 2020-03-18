@@ -66,7 +66,7 @@ public class StudyLogsDO {
     private String schoolName;
 
     /**
-     * 平台 0:安卓；1：IOS; 2: WEB; 3:小程序
+     * 平台
      */
-    private Integer platform;
+    private String platform;
 }
