@@ -64,9 +64,9 @@ public class WatchVideoRequest {
     private Long learnTime;
 
     /**
-     * 课时类型(video、live)
+     * 课时类型(video:录播;live:直播;playBackH:欢拓回放;playBack:平台回放)
      */
-    @ApiModelProperty(value = "课时类型",allowableValues = "video、live", required = true)
+    @ApiModelProperty(value = "课时类型",allowableValues = "video、live、playBackH、playBack", required = true)
     @NotEmpty(message = "参数错误：课时类型不能为空")
     private String type;
 

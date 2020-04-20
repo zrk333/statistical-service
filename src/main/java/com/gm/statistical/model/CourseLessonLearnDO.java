@@ -68,6 +68,11 @@ public class CourseLessonLearnDO {
     private String videoStatus;
 
     /**
+     * 视频类型
+     */
+    private String videoType;
+
+    /**
      * 更新时间
      */
     private String updateTime;

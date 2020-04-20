@@ -20,22 +20,23 @@
     <select id="getLearnInfoByCondition" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
-        from course_lesson_learn
+        from course_lesson_learn_record
         where userId = #{request.userId}
+          and videoType = #{request.videoType}
           and courseId = #{request.courseId}
           and lessonId = #{request.lessonId}
     </select>
 
     <insert id="addLearnInfo" parameterType="com.gm.statistical.model.CourseLessonLearnDO">
-        insert into course_lesson_learn
-        (userId,courseId,lessonId,status,startTime,finishedTime,learnTime,watchTime,watchNum,videoStatus,updateTime)
+        insert into course_lesson_learn_record
+        (userId,courseId,lessonId,status,startTime,finishedTime,learnTime,watchTime,watchNum,videoStatus,videoType,updateTime)
         values
         (#{userId},#{courseId},#{lessonId},#{status},#{startTime},#{finishedTime},#{learnTime}
-        ,#{watchTime},#{watchNum},#{videoStatus},#{updateTime})
+        ,#{watchTime},#{watchNum},#{videoStatus},#{videoType},#{updateTime})
     </insert>
 
     <update id="updateLearnInfo" parameterType="com.gm.statistical.request.CourseLessonLearnRequest">
-        update course_lesson_learn set
+        update course_lesson_learn_record set
             status = #{status},
             finishedTime = #{finishedTime},
             learnTime = #{learnTime},
@@ -43,6 +44,7 @@
             watchNum = #{watchNum},
             updateTime =  #{updateTime}
         where userId = #{userId}
+            and videoType = #{videoType}
             and courseId = #{courseId}
             and lessonId = #{lessonId}
     </update>

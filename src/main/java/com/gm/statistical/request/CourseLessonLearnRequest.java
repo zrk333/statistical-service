@@ -53,4 +53,9 @@ public class CourseLessonLearnRequest {
      * 更新时间
      */
     private String updateTime;
+
+    /**
+     * 视频类型
+     */
+    private String videoType;
 }

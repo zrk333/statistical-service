@@ -42,6 +42,7 @@ public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
         BeanUtils.copyProperties(watchVideoInfoDTO,studyLogsDO);
         studyLogsDO.setPlatform(PlatformEnum.getNameById(watchVideoInfoDTO.getPlatform()));
         studyLogsDO.setSchoolName(StringUtils.isEmpty(watchVideoInfoDTO.getSchoolName()) ? "jhwx" : watchVideoInfoDTO.getSchoolName().toLowerCase());
+        studyLogsDO.setVideoType(watchVideoInfoDTO.getType());
         return studyLogsDO;
     }
 
@@ -49,6 +50,7 @@ public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
     public CourseLessonLearnRequest convertDTOToCourseLessonLearnRequest(WatchVideoInfoDTO watchVideoInfoDTO) {
         CourseLessonLearnRequest courseLessonLearnRequest = new CourseLessonLearnRequest();
         BeanUtils.copyProperties(watchVideoInfoDTO,courseLessonLearnRequest);
+        courseLessonLearnRequest.setVideoType(watchVideoInfoDTO.getType());
         return courseLessonLearnRequest;
     }
 }

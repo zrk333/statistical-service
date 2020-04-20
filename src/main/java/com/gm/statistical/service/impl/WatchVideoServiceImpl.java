@@ -108,6 +108,7 @@ public class WatchVideoServiceImpl implements WatchVideoService {
                 .watchTime(watchVideoInfoDTO.getEndTime() - watchVideoInfoDTO.getStartTime())
                 .watchNum(1)
                 .videoStatus("playing")
+                .videoType(watchVideoInfoDTO.getType())
                 .updateTime(StringUtil.getTimeStamp())
                 .build();
     }

@@ -56,9 +56,9 @@ public class StudyLogsDO {
     private String mId;
 
     /**
-     * 课时类型(video、live)
+     * 课时类型(video:录播;live:直播;playBackH:欢拓回放;playBack:平台回放)
      */
-    private String type;
+    private String videoType;
 
     /**
      * 学校名称
