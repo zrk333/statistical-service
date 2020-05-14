@@ -1,6 +1,6 @@
 package com.gm.statistical.aop;
 
-import com.gm.core.base.exception.statistical.InvalidUserIdException;
+import com.gm.statistical.exception.InvalidUserIdException;
 import com.gm.statistical.request.CenterRequest;
 import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.service.UserService;

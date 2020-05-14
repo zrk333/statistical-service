@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableAsync
-@SpringBootApplication(scanBasePackages = {"com.gm.core.base.aop", "com.gm.statistical"})
+@SpringBootApplication
 public class StatisticalServiceApplication {
 
 	public static void main(String[] args) {

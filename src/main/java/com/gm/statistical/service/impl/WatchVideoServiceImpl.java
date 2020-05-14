@@ -1,9 +1,9 @@
 package com.gm.statistical.service.impl;
 
-import com.gm.core.base.exception.statistical.InvalidPlatformException;
 import com.gm.core.base.utils.StringUtil;
 import com.gm.statistical.dao.classdata.CourseLessonLearnDao;
 import com.gm.statistical.dao.classdata.StudyLogsDao;
+import com.gm.statistical.exception.InvalidPlatformException;
 import com.gm.statistical.model.CourseLessonLearnDO;
 import com.gm.statistical.model.WatchVideoInfoDTO;
 import com.gm.statistical.request.CourseLessonLearnRequest;
