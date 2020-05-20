@@ -7,6 +7,7 @@ import com.gm.statistical.request.ClassRequest;
 import com.gm.statistical.request.CourseLessonLearnRequest;
 import com.gm.statistical.request.WatchVideoRequest;
 import com.gm.statistical.service.converter.WatchVideoInfoConverter;
+import com.gm.statistical.utils.StringTools;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -43,6 +44,7 @@ public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
         studyLogsDO.setPlatform(PlatformEnum.getNameById(watchVideoInfoDTO.getPlatform()));
         studyLogsDO.setSchoolName(StringUtils.isEmpty(watchVideoInfoDTO.getSchoolName()) ? "jhwx" : watchVideoInfoDTO.getSchoolName().toLowerCase());
         studyLogsDO.setVideoType(watchVideoInfoDTO.getType());
+        studyLogsDO.setRoomId(StringTools.checkNumber(watchVideoInfoDTO.getRoomId()));
         return studyLogsDO;
     }
 

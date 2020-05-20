@@ -69,4 +69,9 @@ public class StudyLogsDO {
      * 平台
      */
     private String platform;
+
+    /**
+     * 房间号
+     */
+    private String roomId;
 }

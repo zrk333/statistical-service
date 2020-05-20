@@ -51,7 +51,7 @@ public class WatchVideoInfoDTO {
     private Long learnTime;
 
     /**
-     * 课时类型(video:录播;live:直播;playBackH:欢拓回放;playBack:平台回放)
+     * 课时类型
      */
     private String type;
 
@@ -69,5 +69,10 @@ public class WatchVideoInfoDTO {
      * 手机唯一码
      */
     private String mId;
+
+    /**
+     * 房间号
+     */
+    private String roomId;
 
 }

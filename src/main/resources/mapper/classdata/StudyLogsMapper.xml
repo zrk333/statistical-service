@@ -3,9 +3,11 @@
 <mapper namespace="com.gm.statistical.dao.classdata.StudyLogsDao">
     <insert id="addStudyLogs" parameterType="com.gm.statistical.model.StudyLogsDO">
         insert into s_study_logs
-        (uid,uname,courseid,lessonid,learntime,wstarttime,wendtime,mid,schoolName,platform,videoType)
+        (uid,uname,courseid,lessonid,learntime,wstarttime,wendtime,mid,schoolName,platform,videoType,roomId)
         values
-        (#{userId},#{userName},#{courseId},#{lessonId},#{learnTime},#{startTime},#{endTime},#{mId},#{schoolName},#{platform},#{videoType})
+        (#{userId},#{userName},#{courseId},#{lessonId},#{learnTime},
+        #{startTime},#{endTime},#{mId},#{schoolName},#{platform},
+        #{videoType},#{roomId})
     </insert>
 
 </mapper>

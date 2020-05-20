@@ -1,7 +1,7 @@
 package com.gm.statistical.service.impl;
 
-import com.gm.core.base.exception.statistical.InvalidPlatformException;
 import com.gm.statistical.bindings.OutputWatchVideoBinding;
+import com.gm.statistical.exception.InvalidPlatformException;
 import com.gm.statistical.model.WatchVideoInfoDTO;
 import com.gm.statistical.model.web.ResultStatus;
 import com.gm.statistical.service.StudyRecordService;

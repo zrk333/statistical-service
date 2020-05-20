@@ -71,6 +71,11 @@ public class WatchVideoRequest {
     private String type;
 
     /**
+     * 房间号(直播、欢拓回放时需要传)
+     */
+    private String roomId;
+
+    /**
      * 学校名称
      */
     @ApiModelProperty(value = "学校名称",allowableValues = "jhwx、shengxuewangxiao、jhwxedu", required = false)
