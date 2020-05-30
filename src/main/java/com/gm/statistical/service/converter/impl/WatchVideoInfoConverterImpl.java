@@ -45,6 +45,7 @@ public class WatchVideoInfoConverterImpl implements WatchVideoInfoConverter {
         studyLogsDO.setSchoolName(StringUtils.isEmpty(watchVideoInfoDTO.getSchoolName()) ? "jhwx" : watchVideoInfoDTO.getSchoolName().toLowerCase());
         studyLogsDO.setVideoType(watchVideoInfoDTO.getType());
         studyLogsDO.setRoomId(StringTools.checkNumber(watchVideoInfoDTO.getRoomId()));
+        studyLogsDO.setUserName(StringTools.checkEmpty(watchVideoInfoDTO.getUserName()));
         return studyLogsDO;
     }
 

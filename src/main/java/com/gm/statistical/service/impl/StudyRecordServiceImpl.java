@@ -27,14 +27,21 @@ public class StudyRecordServiceImpl implements StudyRecordService {
 
     @Override
     public ResultStatus setWatchVideoRecordToMq(WatchVideoInfoDTO watchVideoInfoDTO) {
-        validatePlatform(watchVideoInfoDTO.getPlatform());
-        //将观看信息放入消息队列
-        outputWatchVideoBinding.output().send(MessageBuilder.withPayload(watchVideoInfoDTO).build());
+        validateData(watchVideoInfoDTO);
+        if(watchVideoInfoDTO.getCourseId() == 0
+                || watchVideoInfoDTO.getLessonId() == 0
+                || watchVideoInfoDTO.getLearnTime() == 0
+                || watchVideoInfoDTO.getUserId() == 0){
+            log.warn("统计听课记录参数有误：{}",watchVideoInfoDTO);
+        } else {
+            //将观看信息放入消息队列
+            outputWatchVideoBinding.output().send(MessageBuilder.withPayload(watchVideoInfoDTO).build());
+        }
         return new ResultStatus();
     }
 
-    private void validatePlatform(Integer platform) {
-        if(platform == null){
+    private void validateData(WatchVideoInfoDTO watchVideoInfoDTO) {
+        if(watchVideoInfoDTO.getPlatform() == null){
             throw new InvalidPlatformException();
         }
     }
