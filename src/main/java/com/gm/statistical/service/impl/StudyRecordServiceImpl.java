@@ -31,7 +31,10 @@ public class StudyRecordServiceImpl implements StudyRecordService {
         if(watchVideoInfoDTO.getCourseId() == 0
                 || watchVideoInfoDTO.getLessonId() == 0
                 || watchVideoInfoDTO.getLearnTime() == 0
-                || watchVideoInfoDTO.getUserId() == 0){
+                || watchVideoInfoDTO.getUserId() == 0
+                || watchVideoInfoDTO.getStartTime() == 0
+                || watchVideoInfoDTO.getEndTime() == 0
+                || watchVideoInfoDTO.getEndTime() < watchVideoInfoDTO.getStartTime()){
             log.warn("统计听课记录参数有误：{}",watchVideoInfoDTO);
         } else {
             //将观看信息放入消息队列
