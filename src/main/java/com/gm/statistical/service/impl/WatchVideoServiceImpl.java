@@ -76,8 +76,10 @@ public class WatchVideoServiceImpl implements WatchVideoService {
         }
         if(watchVideoInfoDTO.getCourseId() == 0
                 || watchVideoInfoDTO.getLessonId() == 0
-                || watchVideoInfoDTO.getLearnTime() == 0
-                || watchVideoInfoDTO.getUserId() == 0){
+                || watchVideoInfoDTO.getLearnTime() <= 0
+                || watchVideoInfoDTO.getUserId() == 0
+                || watchVideoInfoDTO.getStartTime() == 0
+                || watchVideoInfoDTO.getEndTime() == 0){
             return false;
         }
         return true;
