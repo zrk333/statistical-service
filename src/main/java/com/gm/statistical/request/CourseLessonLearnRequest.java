@@ -40,6 +40,11 @@ public class CourseLessonLearnRequest {
     private Long learnTime;
 
     /**
+     * 当前学习时间
+     */
+    private Long currentLearnTime;
+
+    /**
      * 学习时间
      */
     private Long watchTime;

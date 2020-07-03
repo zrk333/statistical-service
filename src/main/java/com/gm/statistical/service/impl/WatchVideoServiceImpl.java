@@ -122,6 +122,7 @@ public class WatchVideoServiceImpl implements WatchVideoService {
         long finishedTime = "finished".equals(watchVideoInfoDTO.getStatus()) ? watchVideoInfoDTO.getEndTime() : 0;
         courseLessonLearnRequest.setFinishedTime("finished".equals(courseLessonLearnInfo.getStatus()) ? courseLessonLearnInfo.getFinishedTime() : finishedTime);
         courseLessonLearnRequest.setLearnTime(Math.max(courseLessonLearnInfo.getLearnTime(),watchVideoInfoDTO.getLearnTime()));
+        courseLessonLearnRequest.setCurrentLearnTime(watchVideoInfoDTO.getLearnTime());
         courseLessonLearnRequest.setWatchNum(courseLessonLearnInfo.getWatchNum() + 1);
         courseLessonLearnRequest.setWatchTime(courseLessonLearnInfo.getWatchTime() + Math.max((watchVideoInfoDTO.getEndTime() - watchVideoInfoDTO.getStartTime()),0));
         courseLessonLearnRequest.setUpdateTime(StringUtil.getTimeStamp());
@@ -141,6 +142,7 @@ public class WatchVideoServiceImpl implements WatchVideoService {
                 .startTime(watchVideoInfoDTO.getStartTime())
                 .finishedTime("finished".equals(watchVideoInfoDTO.getStatus()) ? watchVideoInfoDTO.getEndTime() : 0)
                 .learnTime(watchVideoInfoDTO.getLearnTime())
+                .currentLearnTime(watchVideoInfoDTO.getLearnTime())
                 .watchTime(watchVideoInfoDTO.getEndTime() - watchVideoInfoDTO.getStartTime())
                 .watchNum(1)
                 .videoStatus("playing")
