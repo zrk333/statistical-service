@@ -29,9 +29,9 @@
 
     <insert id="addLearnInfo" parameterType="com.gm.statistical.model.CourseLessonLearnDO">
         insert into course_lesson_learn
-        (userId,courseId,lessonId,status,startTime,finishedTime,learnTime,watchTime,watchNum,videoStatus,videoType,updateTime)
+        (userId,courseId,lessonId,status,startTime,finishedTime,learnTime,currentLearnTime,watchTime,watchNum,videoStatus,videoType,updateTime)
         values
-        (#{userId},#{courseId},#{lessonId},#{status},#{startTime},#{finishedTime},#{learnTime}
+        (#{userId},#{courseId},#{lessonId},#{status},#{startTime},#{finishedTime},#{learnTime},#{currentLearnTime}
         ,#{watchTime},#{watchNum},#{videoStatus},#{videoType},#{updateTime})
     </insert>
 
