@@ -8,6 +8,7 @@ import com.gm.statistical.model.WatchVideoInfoDTO;
 import com.gm.statistical.request.CourseLessonLearnRequest;
 import com.gm.statistical.service.WatchVideoService;
 import com.gm.statistical.service.converter.WatchVideoInfoConverter;
+import com.gm.statistical.utils.NumberUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -121,7 +122,11 @@ public class WatchVideoServiceImpl implements WatchVideoService {
         courseLessonLearnRequest.setStatus("finished".equals(courseLessonLearnInfo.getStatus()) ? "finished" : watchVideoInfoDTO.getStatus());
         long finishedTime = "finished".equals(watchVideoInfoDTO.getStatus()) ? watchVideoInfoDTO.getEndTime() : 0;
         courseLessonLearnRequest.setFinishedTime("finished".equals(courseLessonLearnInfo.getStatus()) ? courseLessonLearnInfo.getFinishedTime() : finishedTime);
-        courseLessonLearnRequest.setLearnTime(Math.max(courseLessonLearnInfo.getLearnTime(),watchVideoInfoDTO.getLearnTime()));
+        if("live".equalsIgnoreCase(watchVideoInfoDTO.getType())){
+            courseLessonLearnRequest.setLearnTime(NumberUtil.checkNumberLong(courseLessonLearnInfo.getLearnTime()) + NumberUtil.checkNumberLong(watchVideoInfoDTO.getLearnTime()));
+        } else {
+            courseLessonLearnRequest.setLearnTime(Math.max(courseLessonLearnInfo.getLearnTime(), watchVideoInfoDTO.getLearnTime()));
+        }
         courseLessonLearnRequest.setCurrentLearnTime(watchVideoInfoDTO.getLearnTime());
         courseLessonLearnRequest.setWatchNum(courseLessonLearnInfo.getWatchNum() + 1);
         courseLessonLearnRequest.setWatchTime(courseLessonLearnInfo.getWatchTime() + Math.max((watchVideoInfoDTO.getEndTime() - watchVideoInfoDTO.getStartTime()),0));
